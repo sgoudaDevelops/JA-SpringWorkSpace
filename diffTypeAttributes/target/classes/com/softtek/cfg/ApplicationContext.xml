@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- depedent classes -->
+	<bean name="dt" class="java.util.Date"></bean>
+	<bean name="it" class="com.softtek.beans.smartWatch">
+	<property name="Brand" value="iWatch"></property>
+	</bean>
+
+
+
+	<bean id="std" class="com.softtek.beans.Student">
+		<property name="id">
+			<value>001</value>
+		</property>
+		<property name="sname">
+			<value>Shivanagoud</value>
+		</property>
+		<property name="jOD" ref="dt"></property>
+		<property name="sub" value=" p, c, m, b"></property>
+		<!--<property name="Sub"> <value>p</value> <value>c</value> <value>m</value> 
+			</property> -->
+
+		<property name="MarksPerSem">
+			<list>
+				<value> 80</value>
+				<value>75</value>
+				<value>70</value>
+				<value>85</value>
+			</list>
+		</property>
+		<property name="CourseFee">
+			<map>
+				<entry>
+					<key>
+						<value>java</value>
+					</key>
+					<value>45000</value>
+				</entry>
+				<entry>
+					<key>
+						<value>sql</value>
+					</key>
+					<value>5000</value>
+				</entry>
+			</map>
+		</property>
+		<property name="LibraryBooksBorrowed">
+			<set>
+				<value>java</value>
+				<value>sql</value>
+			</set>
+		</property>
+		<property name="Watch" ref="it"></property>
+	</bean>
+
+	<bean id="hello" class="com.softtek.beans.Student">
+		<constructor-arg name="id">
+			<value>002</value>
+		</constructor-arg>
+		<constructor-arg name="sname">
+			<value>Shyam</value>
+		</constructor-arg>
+		<constructor-arg name="sub" value="A,S,P,H">
+		</constructor-arg>
+		<constructor-arg name="jOD" ref="dt">
+		</constructor-arg>
+		<constructor-arg name="marksPerSem">
+			<list>
+				<value>70</value>
+				<value>80</value>
+				<value>90</value>
+				<value>40</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg name="courseFee">
+			<map>
+				<entry>
+					<key>
+						<value>
+							Astrology
+						</value>
+					</key>
+					<value>50000</value>
+				</entry>
+				<entry>
+					<key>
+						<value>
+							socio-logy
+						</value>
+					</key>
+					<value>5002</value>
+				</entry>
+			</map>
+		</constructor-arg>
+		<constructor-arg name="libraryBooksBorrowed">
+			<set>
+				<value>Indian Modern History</value>
+				<value>Indian Ancient History</value>
+			</set>
+		</constructor-arg>
+		<constructor-arg name="watch" ref="it"></constructor-arg>
+	</bean>
+
+	<bean id="Ram" class="com.softtek.beans.Student">
+		<constructor-arg name="id">
+			<value>002</value>
+		</constructor-arg>
+		<constructor-arg name="sname">
+			<value>Ramesh</value>
+		</constructor-arg>
+		<constructor-arg name="sub" value="P,C,M,B"></constructor-arg>
+		<constructor-arg name="jOD" ref="dt"></constructor-arg>
+		<constructor-arg name="marksPerSem">
+			<list>
+				<value>45</value>
+				<value>79</value>
+				<value>89</value>
+				<value>78</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg name="watch" ref="it"></constructor-arg>
+	</bean>
+</beans>

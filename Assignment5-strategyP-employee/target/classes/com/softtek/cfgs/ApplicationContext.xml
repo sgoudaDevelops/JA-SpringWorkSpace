@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Data source cfg -->
+	<bean id="dmds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/springminiproj1"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="Softtek@2022"></property>
+	</bean>
+	<!-- DAO class cfg -->
+	<bean id="custDAO" class="com.softtek.dao.CustomerDAOImpl">
+		<constructor-arg name="ds" ref="dmds"></constructor-arg>
+	</bean>
+	<!-- Service Class cfg -->
+		<bean id="custService" class="com.softtek.service.CustomerMgmtServiceImpl">
+		<constructor-arg name="dao" ref="custDAO"></constructor-arg>
+	</bean>
+	<!-- Controller cfg -->
+	<bean id="controller" class="com.softtek.controller.MainController">
+		<constructor-arg name="service" ref="custService"></constructor-arg>
+	</bean>
+	
+	
+</beans> 
